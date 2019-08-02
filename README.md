@@ -51,12 +51,12 @@ Things you may want to cover:
 |------|----|-------|
 |body|text|
 |image|string|
-|group_id|integer|
-|user_id|integer|
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
-- blongs_to :users
-- blongs_to :groups
+- blongs_to :user
+- blongs_to :group
 
 ## membersテーブル
 |Column|Type|Options|
