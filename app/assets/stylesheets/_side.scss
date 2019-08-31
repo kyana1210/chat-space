@@ -12,7 +12,7 @@
   text-align: center;
   width: 100vw;
 }
-.chat-side {
+.side-bar {
   width: 300px;
   color: #ffffff;
   float: left;
@@ -26,29 +26,30 @@
       text-rendering: auto;
     }
   }
-  .side-header {
+  .header {
     background-color: #253141;
     color: #ffffff;
     height: 100px;
     display: flex;
     align-items: center;
     padding: 0 20px;
-    &__box {
+    &__name {
       display: flex;
       justify-content: space-between;
       width: 100%;
       font-weight: bold;
-      &__menu {
-        display: flex;
-        & li {
-            margin-left: 0.3rem;
-        & ul {
-          margin-block-start: 1em;
-          margin-block-end: 1em;
-          margin-inline-start: 0px;
-          margin-inline-end: 0px;
-          padding-inline-start: 40px;
-          }
+    }
+    &__lists {
+      display: flex;
+      & li {
+          margin-left: 0.3rem;
+          font-size: $side_header_font;          
+      & ul {
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
         }
       }
     }

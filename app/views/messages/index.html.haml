@@ -1,16 +1,16 @@
 = render 'devise/shared/side_bar'
-.chat-main
-  .main-header
-    .main-header__left-box
-      %h2.main-header__left-box__current-group{"data-group_id" => "3016"}
+.main
+  .header
+    .header__left-box
+      %h2.header__left-box__current-group{"data-group_id" => "3016"}
         test
-      %ul.main-header__left-box__member-list
+      %ul.header__left-box__member-list
         menber：
-        %li.main-header__left-box__member-list__member
+        %li.header__left-box__member-list__member
           kyana
     %a
     =link_to "/groups/3016/edit" do
-      .main-header__edit-btn Edit
+      .header__edit-btn Edit
   .messages
     .message{"data-message_id"=>"8046"}
       .message__upper-info
