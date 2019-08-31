@@ -2,15 +2,15 @@
 .main
   .header
     .header__left-box
-      %h2.header__left-box__current-group{"data-group_id" => "3016"}
-        test
+      %h2.header__left-box__current-group
+        = @group.name
       %ul.header__left-box__member-list
-        menber：
+        Menber：
         %li.header__left-box__member-list__member
-          kyana
-    %a
-    =link_to "/groups/3016/edit" do
-      .header__edit-btn Edit
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
+    .header__edit-btn
+      =link_to 'Edit', edit_group_path(@group)
   .messages
     = render partial: 'message', collection: @messages
   .form
