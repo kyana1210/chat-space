@@ -12,14 +12,7 @@
     =link_to "/groups/3016/edit" do
       .header__edit-btn Edit
   .messages
-    .message{"data-message_id"=>"8046"}
-      .message__upper-info
-        %p.message__upper-info__talker
-          kyana
-        %p.message__upper-info__date 
-          2019/08/07(Wed) 15:44:12
-      %p.message__text
-        ためし
+    = render partial: 'message', collection: @messages
   .form
     = form_for [@group, @message] do |f|
       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
