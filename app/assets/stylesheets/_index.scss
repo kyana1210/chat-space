@@ -36,11 +36,9 @@
         color: #999999;
       }
     }
-    & a {
+    &__edit-btn {
       color: #38aef0;
       text-decoration: none;
-    }
-    &__edit-btn {
       height: 40px;
       line-height: 40px;
       padding: 0 20px;
@@ -57,11 +55,11 @@
     overflow:scroll;
     .message {
       padding-bottom:40px;
-      &__upper-info {
+      .upper-message {
         display: flex;
         margin-bottom: 10px;
-        &__talker {
-          color: #434a54;
+        &__user-name {
+          color: $black;
           font-size:16px;
           font-weight: bold;
         }
@@ -71,8 +69,8 @@
           margin-left: 10px;
         }
       }
-      &__text {
-        color: #434a54;
+      .lower-message {
+        color: $black;
         font-size: 14px;
         margin-bottom: 10px;
       }
@@ -81,44 +79,36 @@
   .form {
     height: 90px;
     padding: 20px 40px;
-    background-color: #ddd;
-    form {
-      display: flex;
-      .input{
-        font-family: inherit;
-        font-size: inherit;
-        font-weight: inherit;
-        &-box {
-          position: relative;
-          width: 100%;
-          &__text {
-            height: 50px;
-            width: 100%;
-            padding: 0 40px 0 10px;
-            color: #434a54;
-            border-style: none;
-          }
-          &__image {
-            font-size: 1.3rem;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            &__file {
-              display: none;
-            }
-          }
-        }
-      }
-      .submit-btn {
-        width: 100px;
-        height: 50px;
-        padding: 0 30px;
-        margin-left: 15px;
-        background-color: #38aef0;
-        color: #ffffff;
+    background-color: $light_gray;
+    &__message {
+      padding-left: 10px;
+      height: 50px;
+      border: none;
+      float: left;
+      width: calc(100% - 150px);
+    }
+    .form__mask {
+      background-color: $white;
+      .icon {
+        line-height: 50px;
+        font-size: 1.3rem;
+        top: 10px;
+        right: 10px;
         cursor: pointer;
       }
+      .hidden{
+        display: none;
+      }
+    }
+    .form__submit {
+      float: right;
+      width: 100px;
+      height: 50px;
+      padding: 0 30px;
+      background-color: $light_blue;
+      color: $white;
+      margin-left: 15px;
+      cursor: pointer;
     }
   }
 }

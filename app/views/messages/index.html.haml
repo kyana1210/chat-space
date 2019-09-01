@@ -2,31 +2,22 @@
 .main
   .header
     .header__left-box
-      %h2.header__left-box__current-group{"data-group_id" => "3016"}
-        test
+      %h2.header__left-box__current-group
+        = @group.name
       %ul.header__left-box__member-list
-        menber：
+        Menber：
         %li.header__left-box__member-list__member
-          kyana
-    %a
-    =link_to "/groups/3016/edit" do
-      .header__edit-btn Edit
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
+    .header__edit-btn
+      =link_to 'Edit', edit_group_path(@group)
   .messages
-    .message{"data-message_id"=>"8046"}
-      .message__upper-info
-        %p.message__upper-info__talker
-          kyana
-        %p.message__upper-info__date 
-          2019/08/07(Wed) 15:44:12
-      %p.message__text
-        ためし
+    = render partial: 'message', collection: @messages
   .form
-    %form#new_message.new_message{:enctype => "multipart/form-data", :action => "/groups/3016/messages", :"accept-charset" => "UTF-8", :method => "post"}
-      %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-      %input{:name => "authenticity_token", :type => "hidden", :value => "aaaaa"}/
-      .input-box
-        %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-        %label.input-box__image{:for => "message_image"}
-          %i.fa.fa-image
-          %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}/
-      %input.submit-btn{:"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
